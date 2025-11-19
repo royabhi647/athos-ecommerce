@@ -24,7 +24,7 @@ export default function Header({ headerSearchTerm, onHeaderSearchChange }: Heade
             placeholder="Show products based on search"
             value={headerSearchTerm}
             onChange={(e) => onHeaderSearchChange(e.target.value)}
-            className="bg-[#FFF] rounded-full px-4 py-2 w-[380px] md:w-[460px] text-sm placeholder-blue-300 outline-none"
+            className="bg-[#FFF] text-black rounded-full px-4 py-2 w-[380px] md:w-[460px] text-sm placeholder-blue-300 outline-none"
           />
           <svg
             className="w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-blue-300"

@@ -2,12 +2,17 @@
 
 E-commerce product listing with cart, filtering, and search.
 
-## Setup
+### [live preview](https://athos-ecommerce.vercel.app/)
 
-```bash
-npm install
-npm run dev
-```
+### Installation
+1. Clone the repository: `git clone https://github.com/royabhi647/athos-ecommerce.git`
+2. Navigate to the project directory: `cd athos-ecommerce`
+3. Install dependencies: `npm install`
+
+### Usage
+1. Start the development server: `npm run dev`
+2. Open your browser and navigate to `http://localhost:5173`
+
 
 ## Features
 
