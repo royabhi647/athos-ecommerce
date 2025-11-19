@@ -1,11 +1,10 @@
-// src/store/cartSlice.ts
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 interface CartItem {
   id: number;
-  title: string;           // ← matches API (was product_name)
+  title: string;
   price: number;
-  image: string;           // ← matches API (was imageUrl)
+  image: string;
   qty: number;
 }
 
@@ -36,7 +35,6 @@ const cartSlice = createSlice({
       state.totalPrice = calculateTotal(state.items);
     },
 
-    // Optional: nice to have later
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter(item => item.id !== action.payload);
       state.totalPrice = calculateTotal(state.items);
@@ -46,8 +44,19 @@ const cartSlice = createSlice({
       state.items = [];
       state.totalPrice = 0;
     },
+
+    updateQuantity: (state, action: PayloadAction<{ id: number; qty: number }>) => {
+      const item = state.items.find(item => item.id === action.payload.id);
+      if (item) {
+        item.qty = action.payload.qty;
+        if (item.qty <= 0) {
+          state.items = state.items.filter(i => i.id !== action.payload.id);
+        }
+      }
+      state.totalPrice = calculateTotal(state.items);
+    },
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
